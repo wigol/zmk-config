@@ -15,6 +15,9 @@
 #define RAISE 2
 #define ADJUST 3
 
+// Hyper key shortcut
+#define LHYP LS(LC(LA(LGUI)))
+
 / {
 
    // Activate ADJUST layer by pressing raise and lower
@@ -32,17 +35,17 @@
         default_layer {
             label = "default";
 // ------------------------------------------------------------------------------------------------------------
-// |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   \   |
+// |  H/`  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |  H/\  |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
 // | C/ESC |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |  C/'  |
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  | PLAYP |  N   |  M    |  ,    |  .   |   /   | SHIFT |
 //               |CTRL | ALT  |GUI/- | LOWER|  ENTER |  | SPACE | RAISE|GUI/=  | ALT   |CTRL  |
             bindings = <
-&kp GRAVE     &kp N1 &kp N2   &kp N3   &kp N4       &kp N5                           &kp N6 &kp N7         &kp N8    &kp N9   &kp N0   &kp BSLH
-&kp TAB       &kp Q  &kp W    &kp E    &kp R        &kp T                            &kp Y  &kp U          &kp I     &kp O    &kp P    &kp BSPC
-&mt LCTRL ESC &kp A  &kp S    &kp D    &kp F        &kp G                            &kp H  &kp J          &kp K     &kp L    &kp SEMI &mt RCTRL SQT
-&kp LSHFT     &kp Z  &kp X    &kp C    &kp V        &kp B      &kp C_MUTE &kp C_PP   &kp N  &kp M          &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-              &mt LCTRL LALT(Z) &kp LALT &mt LGUI MINUS  &mo LOWER  &kp RET    &kp SPACE  &mo RAISE  &mt RGUI EQUAL &kp RALT  &kp RCTRL
+&mt LHYP GRAVE     &kp N1 &kp N2   &kp N3   &kp N4       &kp N5                           &kp N6 &kp N7         &kp N8    &kp N9   &kp N0   &mt LHYP BSLH
+&kp TAB            &kp Q  &kp W    &kp E    &kp R        &kp T                            &kp Y  &kp U          &kp I     &kp O    &kp P    &kp BSPC
+&mt LCTRL ESC      &kp A  &kp S    &kp D    &kp F        &kp G                            &kp H  &kp J          &kp K     &kp L    &kp SEMI &mt RCTRL SQT
+&kp LSHFT          &kp Z  &kp X    &kp C    &kp V        &kp B      &kp C_MUTE &kp C_PP   &kp N  &kp M          &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+                   &mt LCTRL LALT(Z) &kp LALT &mt LGUI MINUS  &mo LOWER  &kp RET    &kp SPACE  &mo RAISE  &mt RGUI EQUAL &kp RALT  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -70,15 +73,15 @@
 
         raise_layer {
             label = "raise";
-// ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
-// |       | INS  | PSCR | GUI   |       |      |                | PGUP | HOME |   ^   |  END |       |       |
-// |       | ALT  | CTRL | SHIFT |       | CAPS |                | PGDN |   <- |   v   |  ->  |  DEL  | BKSPC |
-// |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |      |       |       |
-//                |      |       |       |      |      |  |      |      |      |       |      |
+// -------------------------------------------------------------------------------------------------------------
+// |       | BT1  | BT2  |  BT3  |  BT4  |  BT5  |                |      |      |       |      |       |       |
+// |       | INS  | PSCR | GUI   |       | BTCLR |                | PGUP | HOME |   ^   |  END |       |       |
+// |       | ALT  | CTRL | SHIFT |       | CAPS  |                | PGDN |   <- |   v   |  ->  |  DEL  | BKSPC |
+// |       | UNDO | CUT  | COPY  | PASTE |       |      |  |      |      |      |       |      |       |       |
+//                |      |       |       |       |      |  |      |      |      |       |      |
             bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &trans    &trans    &trans   &trans    &trans  &trans
-&trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                        &kp PG_UP &kp HOME  &kp UP   &kp END   &kp N0  &trans
+&trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &trans    &trans    &trans   &trans    &trans  &trans
+&trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &bt BT_CLR                    &kp PG_UP &kp HOME  &kp UP   &kp END   &kp N0  &trans
 &trans     &kp LALT     &kp LCTRL    &kp LSHFT    &trans       &kp CLCK                      &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &kp DEL &kp BSPC
 &trans     &kp K_UNDO   &kp K_CUT    &kp K_COPY   &kp K_PASTE  &trans        &trans  &trans  &trans    &trans    &trans   &trans    &trans  &trans
                         &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans
@@ -89,16 +92,16 @@
 
         adjust_layer {
 // ----------------------------------------------------------------------------------------------------------------------------
-// | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
-// | EXTPWR | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
-// |        | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
+// |        |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
+// | EXTPWR | RGB_HUD | RGB_HUI | RGB_SAD |  BTCLR  | RGB_EFF |                  |      |      |       |      |       |       |
+// |        | RGB_BRD | RGB_BRI | RGB_SAI |         |         |                  |      |      |       |      |       |       |
 // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
 //                    |         |         |         |         |         | |      |      |      |       |      |
             label = "adjust";
             bindings = <
-&bt BT_CLR        &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                            &none &none &none &none &none &none
-&ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_EFF                         &none &none &none &none &none &none
-&none             &rgb_ug RGB_BRD &rgb_ug RGB_BRI &none           &none           &none                                   &none &none &none &none &none &none
+&trans            &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                            &none &none &none &none &none &none
+&ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &bt BT_CLR      &rgb_ug RGB_EFF                         &none &none &none &none &none &none
+&none             &rgb_ug RGB_BRD &rgb_ug RGB_BRI &rgb_ug RGB_SAI &none           &none                                   &none &none &none &none &none &none
 &none             &none           &none           &none           &none           &none            &rgb_ug RGB_TOG &none  &none &none &none &none &none &none
                                   &none           &none           &none           &none            &none           &none  &none &none &none &none
             >;
