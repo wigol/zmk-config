@@ -37,7 +37,7 @@
             label = "left-homerow-mods";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <175>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <100>;
             require-prior-idle-ms = <100>;
             global-quick-tap;
@@ -50,7 +50,7 @@
             label = "right-homerow-mods";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <175>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <100>;
             require-prior-idle-ms = <100>;
             global-quick-tap;
