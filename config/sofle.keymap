@@ -36,7 +36,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "left-homerow-mods";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             tapping-term-ms = <175>;
             quick-tap-ms = <100>;
             require-prior-idle-ms = <100>;
@@ -49,7 +49,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "right-homerow-mods";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             tapping-term-ms = <175>;
             quick-tap-ms = <100>;
             require-prior-idle-ms = <100>;
