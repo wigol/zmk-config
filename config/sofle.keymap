@@ -18,6 +18,11 @@
 // Hyper key shortcut
 #define LHYP LS(LC(LA(LGUI)))
 
+    // Tune trigger for encoders
+    &sensors {
+        triggers-per-rotation = <40>;
+    };
+
 /* Key positions, from https://github.com/sondrew/clean-zmk-config
 
   ╭────────────────────────────┬────────────────────────────╮
