@@ -81,17 +81,17 @@
         default_layer {
             label = "default";
 // ------------------------------------------------------------------------------------------------------------
-// |  H/`  |   1   |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |  H/\  |
+// |    `  |   1   |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   \   |
 // |  TAB  |   Q   |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
 // | C/ESC |  G/A  | A/S | S/D  | C/F  |  G   |                   |  H   | C/J   | S/K   | A/L  |  G/;  |  C/'  |
 // | SHIFT |   Z   |  X  |  C   |  V   |  B   |  MUTE  |  | PLAYP |  N   |  M    |  ,    |  .   |   /   | SHIFT |
 //               |CTRL | ALT/[  |GUI/- | LOWER|  ENTER |  | SPACE | RAISE|GUI/=  | ALT/] |CTRL  |
             bindings = <
-&mt LHYP GRAVE     &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                           &kp N6       &kp N7      &kp N8     &kp N9     &kp N0         &mt LHYP BSLH
-&kp TAB            &kp Q       &kp W       &kp E        &kp R        &kp T                            &kp Y        &kp U       &kp I      &kp O      &kp P          &kp BSPC
-&mt LCTRL ESC      &lhm LGUI A &lhm LALT S &lhm LSHFT D &lhm LCTRL F &lhm LHYP G                  &lhm LHYP H  &rhm RCTRL J &rhm RSHFT K &rhm LALT L &rhm RGUI SEMI &mt RCTRL SQT
-&kp LSHFT          &kp Z       &kp X       &kp C        &kp V        &kp B      &kp C_MUTE &kp C_PP   &kp N        &kp M          &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-                   &mt LCTRL LA(Z) &mt LALT LBKT &mt LGUI MINUS  &mo LOWER  &kp RET    &kp SPACE  &mo RAISE  &mt RGUI EQUAL &mt RALT RBKT  &kp RCTRL
+&kp GRAVE      &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                           &kp N6       &kp N7      &kp N8     &kp N9     &kp N0         &kp BSLH
+&kp TAB        &kp Q       &kp W       &kp E        &kp R        &kp T                            &kp Y        &kp U       &kp I      &kp O      &kp P          &kp BSPC
+&mt LCTRL ESC  &lhm LGUI A &lhm LALT S &lhm LSHFT D &lhm LCTRL F &lhm LHYP G                  &lhm LHYP H  &rhm RCTRL J &rhm RSHFT K &rhm LALT L &rhm RGUI SEMI &mt RCTRL SQT
+&kp LSHFT      &kp Z       &kp X       &kp C        &kp V        &kp B      &kp C_MUTE &kp C_PP   &kp N        &kp M          &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+               &mt LCTRL LA(Z) &mt LALT LBKT &mt LGUI MINUS  &mo LOWER  &kp RET    &kp SPACE  &mo RAISE  &mt RGUI EQUAL &mt RALT RBKT  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_NEXT C_PREVIOUS>;
