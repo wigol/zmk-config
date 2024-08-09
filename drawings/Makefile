@@ -6,7 +6,7 @@ sofle: ../config/sofle.keymap
 	keymap -c ./kdrawer-cfg.yaml parse -z ../config/sofle.keymap >sofle.yaml
 	keymap -c ./kdrawer-cfg.yaml draw sofle.yaml >sofle.svg
 
-ferris:
+ferris: ../config/cradio.keymap
 	keymap -c ./kdrawer-cfg.yaml parse -z ../config/cradio.keymap >cradio.yaml
 	keymap -c ./kdrawer-cfg.yaml draw cradio.yaml >cradio.svg
 
