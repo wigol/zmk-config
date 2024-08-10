@@ -1,0 +1,19 @@
+* zmk-config
+
+This repository contains [[https://zmk.dev][ZMK firmware]]
+configurations for my keyboards.
+
+** Sofle
+[[https://github.com/josefadamcik/SofleKeyboard][Sofle]] with [[https://nicekeyboards.com/nice-nano/][nice!nano v2]] (sourced at [[https://42keebs.eu/][42keebs]]),
+
+[[./drawings/sofle.svg]]
+
+
+** Ferris Sweep
+[[https://github.com/davidphilipbarr/Sweep][Ferris Sweep]] with NRF52840.
+
+[[./drawings/cradio.svg]]
+
+-----
+
+Keymaps generated with awesome [[https://github.com/caksoylar/keymap-drawer][caksoylar/keymap-drawer]].
