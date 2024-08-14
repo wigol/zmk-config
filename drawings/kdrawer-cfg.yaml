@@ -3,17 +3,17 @@ parse_config:
     '&bootloader': "BTLDR"
     '&sys_reset': "RST"
     '&kp KP_MULTIPLY': "*"
-    "&hml LHYP A":
-      tap: A
+    "&hml LHYP T":
+      tap: T
       hold: HYPER
-    "&hmr LHYP SEMI":
-      tap: ';'
+    "&hmr LHYP Y":
+      tap: Y
       hold: HYPER
     "&lhm LHYP G":
-      tap: A
+      tap: G
       hold: HYPER
     "&rhm LHYP H":
-      tap: ';'
+      tap: H
       hold: HYPER
   zmk_keycode_map:
     C_PP: $$mdi:play-pause$$
