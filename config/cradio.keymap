@@ -13,6 +13,7 @@
 #define LSYM 1
 #define LNAV 2
 #define LCFG 3
+#define LFUN 4
 
 #define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
 #define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
@@ -86,7 +87,7 @@
         // Escape under Q-W
         combo_esc {
             timeout-ms = <200>;
-            key-positions = <0 1>;
+            key-positions = <1 2>;
             bindings = <&kp ESC>;
         };
     };
@@ -95,28 +96,28 @@
        	layer_default {
             label = "default";
             bindings = <
-            &kp Q       &kp W       &kp E        &kp R        &kp T            &kp Y       &kp U        &kp I        &kp O       &kp P
-            &hml LHYP A &hml LALT S &hml LSHFT D &hml LCTRL F &hml LGUI G      &hmr RGUI H &hmr RCTRL J &hmr RSHFT K &hmr LALT L &hmr LHYP BSPC
-            &kp Z       &kp X       &kp C        &kp V        &kp B            &kp N       &kp M        &kp COMMA    &kp DOT     &mt RALT FSLH
-                                         &lt LSYM TAB &kp ENTER  	                   &mt LSHFT SPC &lt LNAV BSPC
+            &kp Q       &kp W       &kp E        &kp R        &hml LHYP T      &hmr LHYP Y   &kp U         &kp I        &kp O       &hmr LHYP P
+            &kp A       &hml LALT S &hml LSHFT D &hml LCTRL F &hml LGUI G      &hmr RGUI H   &hmr RCTRL J  &hmr RSHFT K &hmr LALT L &kp BSPC
+            &kp Z       &kp X       &kp C        &kp V        &kp B            &kp N         &kp M         &kp COMMA    &kp DOT     &mt RALT FSLH
+                                                 &lt LSYM TAB &kp ENTER  	   &mt LSHFT SPC &lt LNAV BSPC
             >;
 		};
        	layer_symbols {
             label = "symbols";
             bindings = <
-            &kp GRAVE &kp N7 &kp N8 &kp N9 &kp N0          &kp AT     &kp CARET &kp HASH        &kp DLLR   &kp BSLH
-            &kp LBKT  &kp N4 &kp N5 &kp N6 &kp RBKT        &kp PRCNT  &kp EXCL  &kp KP_MULTIPLY &kp SQT    &kp SEMI
-            &kp LBRC  &kp N1 &kp N2 &kp N3 &kp RBRC        &kp MINUS  &kp EQUAL &kp COLON       &trans     &trans
-                             &trans &kp LCTRL                         &kp LSHFT &trans
+            &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR &kp RPAR
+            &sk RALT &sk LALT &sk LSHFT &sk LCTRL &sk LGUI        &kp MINUS  &kp QMARK  &kp COLON        &kp SEMI &kp SQT
+            &kp LBKT &kp RBKT &kp GRAVE &kp TILDE &kp BSLH        &kp UNDER  &kp EQUAL  &trans           &trans   &trans
+                                        &trans &kp LCTRL          &kp LSHFT &trans
             >;
 		};
 		layer_navigation {
             label = "navigation";
             bindings = <
-            &kp ESC    &kp F1    &kp F2     &kp F3      &kp F4             &kp PG_UP &kp HOME       &kp UP    &kp END    &kp CAPS
-            &kp TAB    &kp F5    &kp F6     &kp F7      &kp F8             &kp PG_DN &kp LEFT       &kp DOWN  &kp RIGHT  &kp DEL
-            &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE &none              &kp F9    &kp F10        &kp F11   &kp F12    &kp INS
-                                 &trans     &kp LSHFT  		                         &kp LCTRL &trans
+            &kp ESC  &kp N7 &kp N8 &kp N9 &kp N0         &kp PG_UP &kp HOME  &kp UP     &kp END     &mo LFUN
+            &kp TAB  &kp N4 &kp N5 &kp N6 &kp MINUS      &kp PG_DN &kp LEFT  &kp DOWN   &kp RIGHT   &kp DEL
+            &kp CAPS &kp N1 &kp N2 &kp N3 &kp PLUS       &kp DOT   &kp K_CUT &kp K_COPY &kp K_PASTE &kp INS
+                                   &trans &kp LSHFT      &kp LCTRL &trans
             >;
 		};
 
@@ -127,6 +128,16 @@
             &sys_reset   &ext_power   &none        &none        &bt BT_CLR            &kp C_PREVIOUS &kp C_PP     &kp C_NEXT   &none &sys_reset
             &bootloader  &none        &kp K_LOCK   &kp C_BRI_UP &kp C_BRI_DN          &kp GLOBE      &kp K_CMENU  &kp PSCRN    &none &bootloader
                                       &trans       &out OUT_USB                                      &out OUT_BLE &trans
+            >;
+        };
+
+        layer_functions {
+            label = "functions";
+            bindings = <
+            &kp F1  &kp F2  &kp F3 &kp F4 &kp F5      &none &none &none &none &trans
+            &kp F6  &kp F7  &kp F8 &kp F9 &kp F10     &none &none &none &none &none
+            &kp F11 &kp F12 &none &none  &none       &none &none &none &none &none
+                                   &trans &kp LSHFT      &kp LCTRL &trans
             >;
         };
 	};
