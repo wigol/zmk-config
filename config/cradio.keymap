@@ -95,27 +95,25 @@
     };
     combos {
         compatible = "zmk,combos";
+        require-prior-idle-ms = <100>;
+        timeout-ms = <100>;
         // Escape under W-E
         combo_esc {
-            timeout-ms = <200>;
             key-positions = <1 2>;
             bindings = <&kp ESC>;
         };
         // Enter under E-R
         combo_enter {
-          timeout-ms = <200>;
           key-positions = <2 3>;
           bindings = <&kp ENTER>;
         };
         // Backspace under U-I
         combo_bspc {
-          timeout-ms = <200>;
           key-positions = <6 7>;
           bindings = <&kp BSPC>;
         };
         // Delete under I-O
         combo_del {
-          timeout-ms = <200>;
           key-positions = <7 8>;
           bindings = <&kp DEL>;
         };
