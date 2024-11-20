@@ -128,7 +128,7 @@
             bindings = <
             &kp Q       &kp W       &kp E        &kp R        &hml LHYP T      &hmr LHYP Y   &kp U         &kp I        &kp O       &kp P
             &kp A       &hml LALT S &hml LSHFT D &hml LCTRL F &hml LGUI G      &hmr RGUI H   &hmr RCTRL J  &hmr RSHFT K &hmr LALT L &kp BSPC
-            &kp Z       &kp X       &kp C        &kp V        &kp B            &kp N         &kp M         &kp COMMA    &kp DOT     &mt RALT FSLH
+            &mt LSHFT Z &kp X       &kp C        &kp V        &kp B            &kp N         &kp M         &kp COMMA    &kp DOT     &mt RALT FSLH
                                                  &lt LSYM TAB &kp ENTER  	   &mt LSHFT SPC &lt LNAV BSPC
             >;
 		};
@@ -144,10 +144,10 @@
 		layer_navigation {
             label = "navigation";
             bindings = <
-            &kp ESC     &kp N7 &kp N8 &kp N9 &kp N0         &kp PG_UP &kp HOME  &kp UP     &kp END     &mo LFUN
-            &nwin       &kp N4 &kp N5 &kp N6 &kp MINUS      &kp PG_DN &kp LEFT  &kp DOWN   &kp RIGHT   &kp DEL
-            &kp LS(TAB) &kp N1 &kp N2 &kp N3 &kp PLUS       &kp DOT   &kp K_CUT &kp K_COPY &kp K_PASTE &kp INS
-                                   &trans &kp LSHFT      &kp LCTRL &trans
+            &mt LALT ESC  &kp N7 &kp N8 &kp N9 &kp N0         &kp PG_UP    &kp HOME  &kp UP    &kp END     &mo LFUN
+            &mt LCTRL TAB &kp N4 &kp N5 &kp N6 &kp MINUS      &kp PG_DN    &kp LEFT  &kp DOWN  &kp RIGHT   &kp BSPC
+            &mt LSHFT INS &kp N1 &kp N2 &kp N3 &kp PLUS       &mt LHYP DOT &kp LCTRL &kp LSHFT &kp LALT    &kp DEL
+                                        &trans &kp LGUI       &kp LCTRL &trans
             >;
 		};
 
