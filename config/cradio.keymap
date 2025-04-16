@@ -138,7 +138,7 @@
             &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR &kp RPAR
             &sk RALT &sk LALT &sk LSHFT &sk LCTRL &sk LGUI        &kp MINUS  &kp QMARK  &kp COLON        &kp DQT &kp SQT
             &kp LBKT &kp RBKT &kp GRAVE &kp TILDE &kp BSLH        &kp UNDER  &kp EQUAL  &trans           &trans   &trans
-                                        &trans &kp LCTRL          &kp LSHFT &trans
+                                        &kp LCTRL &trans          &trans &kp LSHFT
             >;
 		};
 		layer_navigation {
@@ -147,7 +147,7 @@
             &mt LALT ESC  &kp N7 &kp N8 &kp N9 &kp N0         &kp PG_UP    &kp HOME  &kp UP    &kp END     &mo LFUN
             &mt LCTRL TAB &kp N4 &kp N5 &kp N6 &kp MINUS      &kp PG_DN    &kp LEFT  &kp DOWN  &kp RIGHT   &kp BSPC
             &mt LSHFT INS &kp N1 &kp N2 &kp N3 &kp PLUS       &mt LHYP DOT &kp LCTRL &kp LSHFT &kp LALT    &kp DEL
-                                        &trans &kp LGUI       &kp LCTRL &trans
+                                        &kp LGUI &trans       &trans &kp LCTRL
             >;
 		};
 
@@ -157,7 +157,7 @@
             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4          &kp C_VOL_DN   &kp C_MUTE  &kp C_VOL_UP &none &none
             &sys_reset   &none        &none        &none        &bt BT_CLR            &kp C_PREVIOUS &kp C_PP    &kp C_NEXT   &none &sys_reset
             &bootloader  &none        &kp K_LOCK   &kp C_BRI_UP &kp C_BRI_DN          &kp GLOBE      &kp K_CMENU &kp PSCRN    &none &bootloader
-                                                   &trans       &out OUT_USB          &out OUT_BLE   &trans
+                                                   &out OUT_USB &trans                &trans &out OUT_BLE
             >;
         };
 
@@ -167,7 +167,7 @@
             &kp F1  &kp F2  &kp F3 &kp F4 &kp F5      &none &none &none &none &trans
             &kp F6  &kp F7  &kp F8 &kp F9 &kp F10     &none &none &none &none &none
             &kp F11 &kp F12 &none &none  &none       &none &none &none &none &none
-                                   &trans &kp LSHFT      &kp LCTRL &trans
+                                  &kp LSHFT &trans   &trans  &kp LCTRL
             >;
         };
 	};
