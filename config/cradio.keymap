@@ -136,7 +136,7 @@
             label = "symbols";
             bindings = <
             &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR &kp RPAR
-            &sk RALT &sk LALT &sk LSHFT &sk LCTRL &sk LGUI        &kp MINUS  &kp QMARK  &kp COLON        &kp SEMI &kp SQT
+            &sk RALT &sk LALT &sk LSHFT &sk LCTRL &sk LGUI        &kp MINUS  &kp QMARK  &kp COLON        &kp DQT &kp SQT
             &kp LBKT &kp RBKT &kp GRAVE &kp TILDE &kp BSLH        &kp UNDER  &kp EQUAL  &trans           &trans   &trans
                                         &trans &kp LCTRL          &kp LSHFT &trans
             >;
