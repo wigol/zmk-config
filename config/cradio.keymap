@@ -121,7 +121,7 @@
         combo_ralt {
           key-positions = <14 24>;
           bindings = <&kp RALT>;
-        }
+        };
     };
 
     keymap {
@@ -140,7 +140,7 @@
             bindings = <
             &kp EXCL  &kp AT   &kp HASH  &kp DLLR &kp PRCNT       &kp CARET  &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR
             &kp QMARK &kp PIPE &kp TILDE &kp LBRC &kp RBRC        &kp MINUS  &kp PLUS  &kp COLON       &kp DQT  &kp SQT
-            &kp DEL   &kp BLSH &kp GRAVE &kp LBKT &kp RBKT        &kp UNDER  &kp EQUAL  &trans           &trans   &trans
+            &kp DEL   &kp BSLH &kp GRAVE &kp LBKT &kp RBKT        &kp UNDER  &kp EQUAL &trans          &trans   &trans
                                         &kp LCTRL &trans          &trans &kp LSHFT
             >;
 		};
