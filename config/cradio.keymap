@@ -97,7 +97,6 @@
         compatible = "zmk,combos";
         require-prior-idle-ms = <100>;
         timeout-ms = <100>;
-        /*
         // Escape under W-E
         combo_esc {
             key-positions = <1 2>;
@@ -118,7 +117,11 @@
           key-positions = <7 8>;
           bindings = <&kp DEL>;
         };
-        */
+        // Right alt under G-B
+        combo_ralt {
+          key-positions = <14 24>;
+          bindings = <&kp RALT>;
+        }
     };
 
     keymap {
