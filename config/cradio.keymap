@@ -97,30 +97,15 @@
         compatible = "zmk,combos";
         require-prior-idle-ms = <100>;
         timeout-ms = <100>;
-        // Escape under W-E
+        // Escape under G-B
         combo_esc {
-            key-positions = <1 2>;
+            key-positions = <14 24>;
             bindings = <&kp ESC>;
         };
-        // Enter under E-R
+        // Enter under H-N
         combo_enter {
-          key-positions = <2 3>;
+          key-positions = <15 25>;
           bindings = <&kp ENTER>;
-        };
-        // Backspace under U-I
-        combo_bspc {
-          key-positions = <6 7>;
-          bindings = <&kp BSPC>;
-        };
-        // Delete under I-O
-        combo_del {
-          key-positions = <7 8>;
-          bindings = <&kp DEL>;
-        };
-        // Right alt under G-B
-        combo_ralt {
-          key-positions = <14 24>;
-          bindings = <&kp RALT>;
         };
     };
 
@@ -149,7 +134,7 @@
             bindings = <
             &mt LALT ESC  &kp N7 &kp N8 &kp N9 &kp N0         &kp PG_UP    &kp HOME  &kp UP    &kp END     &mo LFUN
             &mt LCTRL TAB &kp N4 &kp N5 &kp N6 &kp MINUS      &kp PG_DN    &kp LEFT  &kp DOWN  &kp RIGHT   &kp BSPC
-            &mt LSHFT INS &kp N1 &kp N2 &kp N3 &kp PLUS       &mt LHYP DOT &kp LCTRL &kp LSHFT &kp LALT    &kp DEL
+            &mt LSHFT INS &kp N1 &kp N2 &kp N3 &kp PLUS       &mt LHYP DOT &kp COMMA &kp LSHFT &kp LALT    &kp DEL
                                         &kp LGUI &trans       &trans &kp LCTRL
             >;
 		};
