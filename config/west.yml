@@ -18,5 +18,9 @@ manifest:
     - name: zmk-tri-state
       remote: urob
       revision: main
+    - name: zmk-keyboards-totem
+      url: https://github.com/victorlucachi/zmk-keyboards-totem
+      revision: main
+      path: modules/zmk-keyboards-totem
   self:
     path: config
