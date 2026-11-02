@@ -10,6 +10,12 @@
 #define NAV  1
 #define SYM  2
 #define ADJ  3
+// Hyper key shortcut
+#define LHYP LS(LC(LA(LGUI)))
+
+#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 25
+#define KEYS_R 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31
+#define THUMBS 32 33 34 35 36 37
 
 &mt {
   quick-tap-ms = <100>;
@@ -18,7 +24,70 @@
   tapping-term-ms = <170>;
 };
 
+// For layer-tap, to handle repeated taps (e.g. hold BSPC):
+&lt {
+    quick-tap-ms = <200>;
+};
+//&mt {
+//    quick-tap-ms = <200>;
+//};
+
+&sk {
+    release-after-ms = <2000>;
+};
+
+
 / {
+    behaviors {
+        mtt:mod_tap_to {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_TO";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&to>;
+        };
+        mlt:momentary_layer_tap_to {
+            compatible = "zmk,behavior-hold-tap";
+            label="MOMENTARY_LAYER_TAP_TO";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            bindings = <&mo>, <&to>;
+        };
+        hml:home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "balanced";
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <120>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+        hmr:home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "balanced";
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <120>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        nwin: swapper {
+          compatible = "zmk,behavior-tri-state";
+          #binding-cells = <0>;
+          bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
+          ignored-key-positions = <KEYS_L>;
+        };
+
+    };
     combos {
             compatible = "zmk,combos";
             combo_esc {
@@ -63,9 +132,9 @@ label= "BASE"                              ;
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                 &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
-                &mt LGUI A  &mt LALT S  &mt LCTRL D &mt LSHFT F &kp G           &kp H       &mt RSHFT I &mt RCTRL J &mt RALT K  &mt RGUI L
-    &kp Z       &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp SEMI
-                                        &kp TAB     &lt NAV TAB &kp RET         &kp SPACE   &lt SYM BSPC    &kp BSPC
+                &hml LGUI A  &hml LALT S  &hml LSHFT D &hml LCTRL F &hml LGUI G      &hmr RGUI H  &hmr RCTRL J &hmr RSHFT K &hmr LALT L  &hmr RGUI SEMI
+  &mt LHYP ESC  &mt LSHFT Z &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &mt RALT FSLH    &kp LHYP
+                                        &kp TAB     &lt SYM TAB &kp RET         &kp SPACE   &lt NAV BSPC    &kp BSPC
                         >;
                 };
 
@@ -77,21 +146,21 @@ label= "BASE"                              ;
 label= "NAVI"                              ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃           ┃           ┃     UP    ┃           ┃     {     ┃   ┃     }     ┃     7     ┃     8     ┃     9     ┃     +     ┃
+//             ┃   ESC     ┃    7      ┃      8    ┃     9     ┃     {     ┃   ┃     }     ┃   HOME    ┃     UP    ┃    END    ┃     +     ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃   SHIFT   ┃   LEFT    ┃    DOWN   ┃   RIGHT   ┃     [     ┃   ┃     ]     ┃     4     ┃     5     ┃     6     ┃     -     ┃
+//             ┃   CTRL    ┃    4      ┃      5    ┃     6     ┃     [     ┃   ┃     ]     ┃   LEFT    ┃   DOWN    ┃   RIGHT   ┃     -     ┃
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃           ┃           ┃   P UP    ┃  C LOCK   ┃  P DOWN   ┃     (     ┃   ┃     )     ┃     1     ┃     2     ┃     3     ┃     *     ┃           ┃
+// ┃           ┃   SHIFT   ┃    1      ┃      2    ┃     3     ┃     (     ┃   ┃     )     ┃   P UP    ┃     2     ┃   P DN    ┃     *     ┃           ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃           ┃    TAB    ┃    SPC    ┃   ┃    DEL    ┃     0     ┃           ┃
+//                                     ┃      0    ┃    TAB    ┃    RET    ┃   ┃           ┃           ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp ESC     &bt BT_CLR  &kp UP      &kp EQUAL   &kp LBRC        &kp RBRC    &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS
-                &kp LSHFT   &kp LEFT    &kp DOWN    &kp RIGHT   &kp LBKT        &kp RBKT    &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MINUS
-    &trans      &kp DEL     &kp PG_UP   &kp CAPS    &kp PG_DN   &kp LPAR        &kp RPAR    &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_MULTIPLY &trans      
-                                        &trans      &trans      &trans          &mo ADJ     &kp KP_N0   &trans      
+                &mt LGUI ESC     &kp N7   &kp N8    &kp N9   &kp LBRC        &kp RBRC    &kp HOME   &kp UP   &kp END   &kp KP_PLUS
+                &mt LCTRL DOT  &kp N4   &kp N5    &kp N6   &kp LBKT        &kp RBKT    &kp LEFT    &kp DOWN &kp RIGHT   &kp KP_MINUS
+    &trans      &mt LSHFT FSLH    &kp N1   &kp N2    &kp N3   &kp LPAR        &kp RPAR    &kp PG_UP   &mt LALT COMMA   &kp PG_DN   &kp KP_MULTIPLY &trans      
+                                        &kp N0      &trans      &trans        &trans     &trans   &trans      
                         >;
                 };
 
@@ -114,10 +183,10 @@ label= "SYM"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp RA(U)   &kp SQT     &kp DQT       
-                &kp RA(A)   &trans      &kp RA(S)   &trans      &trans          &kp C_MUTE  &kp LS(RA(N4)) &kp RA(N5) &kp RA(N4)   &kp RA(O) 
-    &trans      &kp RA(F18) &kp RA(F19) &trans      &trans      &trans          &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV &kp C_NEXT  &kp BSLH   &trans         
-                                        &trans      &gif        &mo ADJ         &trans      &kp C_PP    &trans      
+                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp KP_MULTIPLY  &kp LPAR     &kp RPAR       
+                &kp QMARK   &kp PIPE    &kp TILDE   &kp K_VOL_UP  &trans          &kp MINUS   &kp PLUS  &kp COLON &kp DQT   &kp SQT 
+    &kp RA(F16) &kp FSLH &kp BSLH    &kp GRAVE   &kp K_VOL_DN     &trans             &kp UNDER   &kp EQUAL &kp C_PREV &kp C_NEXT  &kp K_MUTE    &kp RA(F17)      
+                                        &trans      &gif        &trans          &trans       &kp C_PP    &mo ADJ      
                         >;
                 };
 
